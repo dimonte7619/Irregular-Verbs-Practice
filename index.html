@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Irregular Verbs — Dìrce Monteiro</title>
+<style>
+:root{--bg:#F7F7F7;--card:#fff;--ink:#3C3C3C;--soft:#777;--line:#E5E5E5;--okbg:#D7FFB8;--badbg:#FFDFE0;--ok:#58A700;--bad:#EA2B2B;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131F24;--card:#1F2C33;--ink:#F1F7FB;--soft:#9AA8B0;--line:#37464F;--okbg:#1F3A12;--badbg:#3F1C1E;--ok:#8EE04A;--bad:#FF7B7B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131F24;--card:#1F2C33;--ink:#F1F7FB;--soft:#9AA8B0;--line:#37464F;--okbg:#1F3A12;--badbg:#3F1C1E;--ok:#8EE04A;--bad:#FF7B7B;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:600 16px/1.4 "Nunito","Trebuchet MS",system-ui,sans-serif}
+.w{max-width:560px;margin:0 auto;padding:14px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.top b{font-size:15px}.top small{display:block;color:var(--soft);font-weight:600}
+.st{display:flex;gap:12px;font-weight:800}
+h2{margin:18px 0 8px;font-size:20px}
+.b{display:block;width:100%;padding:14px;border:0;border-radius:16px;font:800 15px inherit;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--c,#58CC02);box-shadow:0 4px 0 var(--d,#58A700);cursor:pointer}
+.b:active{transform:translateY(3px);box-shadow:0 1px 0 var(--d,#58A700)}
+.b:disabled{background:var(--line);color:var(--soft);box-shadow:0 4px 0 var(--soft)}
+.b.sm{width:auto;padding:10px 14px;font-size:13px}
+.g{--c:#8E8E8E;--d:#6E6E6E}
+.unit{display:flex;align-items:center;gap:12px;background:var(--card);border:2px solid var(--line);border-bottom-width:5px;border-radius:20px;padding:14px;margin-bottom:12px}
+.ic{width:52px;height:52px;border-radius:50%;background:var(--c);box-shadow:0 4px 0 var(--d);color:#fff;font:900 22px/52px inherit;text-align:center;flex:none}
+.unit .m{flex:1;min-width:0}.unit small{display:block;color:var(--soft);font-weight:600}
+.bar{height:12px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:var(--c,#58CC02);border-radius:9px;transition:width .3s}
+.ghost{border:2px solid var(--line);background:var(--card);border-radius:12px;padding:9px 11px;font-size:18px;cursor:pointer}
+.lt{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.lt .bar{flex:1;margin:0;height:16px}.lt .bar i{background:#58CC02}
+.x{background:none;border:0;font-size:24px;color:var(--soft);cursor:pointer}
+.big{font:900 34px/1.1 inherit;margin:6px 0}.ipa{color:var(--soft)}.hl{background:#FFC800;color:#3C3C3C;padding:1px 9px;border-radius:8px;font-weight:900}
+.opt{display:block;width:100%;text-align:left;padding:14px;margin-bottom:10px;border:2px solid var(--line);border-bottom-width:5px;border-radius:16px;background:var(--card);color:var(--ink);font:800 17px inherit;cursor:pointer}
+.opt.sel{border-color:#1CB0F6;background:rgba(28,176,246,.14)}.opt.good{border-color:#58CC02;background:var(--okbg)}.opt.wrong{border-color:#FF4B4B;background:var(--badbg)}
+input{width:100%;box-sizing:border-box;padding:13px;margin-bottom:10px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:700 18px inherit}
+.spk{width:96px;height:96px;border-radius:50%;border:0;font-size:40px;background:#1CB0F6;box-shadow:0 5px 0 #1899D6;cursor:pointer;margin:6px 0 16px}
+.fb{margin-top:14px;padding:14px;border-radius:18px}.fb.ok{background:var(--okbg);color:var(--ok)}.fb.bad{background:var(--badbg);color:var(--bad)}
+.fb p{margin:2px 0 12px}.fb .b{--c:#58CC02}.fb.bad .b{--c:#FF4B4B;--d:#EA2B2B}
+.tc{text-align:center}.hero{font-size:72px}
+.sc{display:flex;gap:10px;margin:16px 0}.sc div{flex:1;border:2px solid var(--c);border-radius:16px;padding:10px;text-align:center;font-weight:900;font-size:20px}.sc small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.sr{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px;margin-bottom:8px}.sr div{display:flex;gap:6px}
+.sr button{flex:1;border:0;border-radius:10px;padding:8px 4px;background:var(--bg);color:var(--ink);font:800 15px inherit;cursor:pointer}.sr button small{display:block;color:var(--soft);font-weight:600;font-size:11px}
+</style></head><body><div class="w" id="app"></div>
+<script>
+const RAW=`1|cut|kʌt|cut|kʌt|cut|kʌt|cortar
+1|put|pʊt|put|pʊt|put|pʊt|colocar
+1|hit|hɪt|hit|hɪt|hit|hɪt|bater / acertar
+1|hurt|hɜrt|hurt|hɜrt|hurt|hɜrt|machucar
+1|let|let|let|let|let|let|deixar / permitir
+1|set|set|set|set|set|set|colocar / ajustar
+1|cost|kɔst|cost|kɔst|cost|kɔst|custar
+1|shut|ʃʌt|shut|ʃʌt|shut|ʃʌt|fechar
+2|buy|baɪ|bought|bɔt|bought|bɔt|comprar
+2|teach|tiːtʃ|taught|tɔt|taught|tɔt|ensinar
+2|catch|kætʃ|caught|kɔt|caught|kɔt|pegar
+2|bring|brɪŋ|brought|brɔt|brought|brɔt|trazer
+2|think|θɪŋk|thought|θɔt|thought|θɔt|pensar
+2|fight|faɪt|fought|fɔt|fought|fɔt|lutar
+2|sell|sel|sold|soʊld|sold|soʊld|vender
+2|tell|tel|told|toʊld|told|toʊld|contar
+2|find|faɪnd|found|faʊnd|found|faʊnd|encontrar
+2|make|meɪk|made|meɪd|made|meɪd|fazer / fabricar
+2|pay|peɪ|paid|peɪd|paid|peɪd|pagar
+2|say|seɪ|said|sɛd|said|sɛd|dizer
+2|sit|sɪt|sat|sæt|sat|sæt|sentar
+2|stand|stænd|stood|stʊd|stood|stʊd|ficar de pé
+2|feel|fiːl|felt|fɛlt|felt|fɛlt|sentir
+2|leave|liːv|left|lɛft|left|lɛft|sair / deixar
+3|sing|sɪŋ|sang|sæŋ|sung|sʌŋ|cantar
+3|drink|drɪŋk|drank|dræŋk|drunk|drʌŋk|beber
+3|swim|swɪm|swam|swæm|swum|swʌm|nadar
+3|ring|rɪŋ|rang|ræŋ|rung|rʌŋ|tocar (sino/telefone)
+3|begin|bɪˈɡɪn|began|bɪˈɡæn|begun|bɪˈɡʌn|começar
+4|know|noʊ|knew|nuː|known|noʊn|saber / conhecer
+4|grow|ɡroʊ|grew|ɡruː|grown|ɡroʊn|crescer
+4|throw|θroʊ|threw|θruː|thrown|θroʊn|jogar / arremessar
+4|blow|bloʊ|blew|bluː|blown|bloʊn|soprar
+4|draw|drɔː|drew|druː|drawn|drɔːn|desenhar
+4|fly|flaɪ|flew|fluː|flown|floʊn|voar
+5|be|biː|was / were|wʌz / wɜr|been|bɪn|ser / estar
+5|have|hæv|had|hæd|had|hæd|ter
+5|come|kʌm|came|keɪm|come|kʌm|vir
+5|run|rʌn|ran|ræn|run|rʌn|correr / administrar
+6|break|breɪk|broke|broʊk|broken|ˈbroʊkən|quebrar
+6|speak|spiːk|spoke|spoʊk|spoken|ˈspoʊkən|falar
+6|steal|stiːl|stole|stoʊl|stolen|ˈstoʊlən|roubar
+6|choose|tʃuːz|chose|tʃoʊz|chosen|ˈtʃoʊzən|escolher
+6|freeze|friːz|froze|froʊz|frozen|ˈfroʊzən|congelar
+6|wake|weɪk|woke|woʊk|woken|ˈwoʊkən|acordar
+6|write|raɪt|wrote|roʊt|written|ˈrɪtən|escrever
+6|bite|baɪt|bit|bɪt|bitten|ˈbɪtən|morder
+6|eat|iːt|ate|eɪt|eaten|ˈiːtən|comer
+6|fall|fɔːl|fell|fɛl|fallen|ˈfɔːlən|cair
+6|forget|fərˈɡɛt|forgot|fərˈɡɑt|forgotten|fərˈɡɑtən|esquecer
+6|give|ɡɪv|gave|ɡeɪv|given|ˈɡɪvən|dar
+6|ride|raɪd|rode|roʊd|ridden|ˈrɪdən|andar (bike/cavalo)
+6|take|teɪk|took|tʊk|taken|ˈteɪkən|pegar / levar
+6|see|siː|saw|sɔː|seen|siːn|ver
+6|do|duː|did|dɪd|done|dʌn|fazer
+6|go|ɡoʊ|went|wɛnt|gone|ɡɔn|ir`;
+const V=RAW.split("\n").map(l=>{const p=l.split("|");return{g:+p[0],b:p[1],bi:p[2],p:p[3],pi:p[4],pp:p[5],ppi:p[6],t:p[7]}});
+const GR=[["No change","cut → cut → cut","#1CB0F6","#1899D6"],["Past = participle","buy → bought → bought","#58CC02","#58A700"],["i → a → u","sing → sang → sung","#FF9600","#E58700"],["-own / -awn","know → knew → known","#CE82FF","#B86BEB"],["Classics","be, have, come, run","#E5B400","#C99A00"],["Participle in -en","break → broke → broken","#FF4B4B","#EA2B2B"]];
+const KI={b:"bi",p:"pi",pp:"ppi"},NM={b:"present",p:"past",pp:"past participle"};
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const $=s=>document.querySelector(s),sh=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]),rnd=a=>a[(Math.random()*a.length)|0];
+let D={x:0,n:0,l:"",c:{},m:{}};try{D=Object.assign(D,JSON.parse(localStorage.getItem("vd")||"{}"))}catch(e){}
+const sv=()=>{try{localStorage.setItem("vd",JSON.stringify(D))}catch(e){}};
+let S="H",L={},stu=0;
+function say(t,l){l=l||"en-US";try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/\//g,","));u.lang=l;u.rate=.8;const v=speechSynthesis.getVoices().find(x=>x.lang==l);if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+function beep(ok){try{const a=new(window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=ok?880:200;g.gain.setValueAtTime(.15,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.25);o.start();o.stop(a.currentTime+.25)}catch(e){}}
+function opts(v,f){const c=v[f];let a=sh([...new Set([v.b,v.b.replace(/e$/,"")+"ed",v.p,v.pp].filter(x=>x!=c))]).slice(0,2);while(a.length<3){const x=rnd(V)[f];if(x!=c&&!a.includes(x))a.push(x)}return sh([c,...a])}
+function gen(v,ty){const t=rnd(ty),f=Math.random()<.5?"p":"pp";
+if(t=="mc")return{t,v,f,o:opts(v,f),ok:v[f]};
+if(t=="mean"){const a=[v.t];while(a.length<4){const x=rnd(V).t;if(!a.includes(x))a.push(x)}return{t,v,o:sh(a),ok:v.t}}
+const g=rnd(["b","p","pp"]);if(t=="listen")return{t,v,f:g,o:opts(v,g),ok:v[g]};return{t,v,f:g}}
+function go(g,pr){const pool=g?V.filter(v=>v.g==g):V,ty=pr?["speak","listen"]:["mc","mc","mean","listen","type","speak"];
+const T=ty.filter(x=>x!="speak"||SR),vs=sh(pool).sort((a,b)=>(D.m[a.b]||0)-(D.m[b.b]||0)+(Math.random()-.5)*2).slice(0,10);
+L={g,q:vs.map(v=>gen(v,T)),i:0,h:5,xp:0,ok:0,n:0,sel:null,chk:null,hd:""};S="L";R()}
+const same=(a,t)=>t.split("/").map(x=>x.trim()).includes(a);
+function chk(){const q=L.q[L.i],v=q.v;let ok;
+if(q.t=="type"){const a=[0,1].map(j=>($("#f"+j).value||"").trim().toLowerCase());ok=same(a[0],v.p)&&same(a[1],v.pp)}else ok=q.t=="speak"?L.sel=="ok":L.sel===q.ok;
+L.n++;D.m[v.b]=ok?Math.min(3,(D.m[v.b]||0)+1):0;if(ok){L.ok++;L.xp+=10}else{L.h--;L.q.push(q)}
+L.chk={ok,pr:rnd(["Great job!","Perfect!","Well done!","Awesome!"])};beep(ok);R();if(ok){const l=L,i=L.i;l.tm=setTimeout(()=>{if(L===l&&S=="L"&&L.i==i&&L.chk&&L.chk.ok)nx()},1500)}}
+function nx(){clearTimeout(L.tm);if(L.h<=0||L.i+1>=L.q.length)return fin();L.i++;L.sel=null;L.chk=null;L.hd="";R()}
+function fin(){const t=new Date().toDateString(),y=new Date(Date.now()-864e5).toDateString();
+if(L.h>0){D.x+=L.xp;D.c[L.g]=(D.c[L.g]||0)+1;if(D.l!=t){D.n=D.l==y?D.n+1:1;D.l=t}}else D.x+=L.xp>>1;sv();S="E";R()}
+function pk(j){const q=L.q[L.i],o=q.o[j],m=q.t=="mean";if(L.chk){if(!m)say(o);return}L.sel=o;if(q.t=="mc")say(o);R()}
+function sp(){const q=L.q[L.i],o=$("#sr");if(L.chk)return;try{const r=new SR();r.lang="en-US";r.maxAlternatives=5;o.textContent="🎤 Listening…";
+r.onresult=e=>{const al=[...e.results[0]].map(x=>x.transcript.toLowerCase().trim().replace(/[.,!?]/g,""));L.hd=al[0];L.sel=al.some(a=>same(a,q.v[q.f].toLowerCase()))?"ok":"bad";chk()};
+r.onerror=()=>{o.textContent="I couldn’t hear you. Try again or tap Skip."};r.start()}catch(e){o.textContent="Microphone unavailable. Tap Skip."}}
+const pct=g=>{const l=g?V.filter(v=>v.g==g):V;return Math.round(l.filter(v=>(D.m[v.b]||0)>=3).length/l.length*100)};
+function vH(){const t=new Date().toDateString(),y=new Date(Date.now()-864e5).toDateString(),n=D.l==t||D.l==y?D.n:0;
+return `<div class="top"><div><b>Dìrce Monteiro</b><small>Ensino de Língua Inglesa</small></div><div class="st"><span>🔥 ${n}</span><span>⭐ ${D.x}</span></div></div>
+<div class="unit" style="--c:#58CC02;--d:#58A700"><div class="ic">🏆</div><div class="m"><b>Mastered: ${pct(0)}%</b><small>3 correct in a row = mastered verb</small><div class="bar"><i style="width:${pct(0)}%"></i></div></div></div>
+<h2>Choose a group</h2>`+GR.map((g,i)=>`<div class="unit" style="--c:${g[2]};--d:${g[3]}"><div class="ic">${i+1}</div><div class="m"><b>${g[0]}</b><small>${g[1]}</small><div class="bar"><i style="width:${pct(i+1)}%"></i></div></div><button class="ghost" onclick="stu=${i+1};S='S';R()" aria-label="See verbs">📖</button><button class="b sm" onclick="go(${i+1})">Practice</button></div>`).join("")
++`<h2>More practice</h2><button class="b" style="--c:#1CB0F6;--d:#1899D6;margin-bottom:12px" onclick="go(0)">🔁 Full review</button><button class="b" style="--c:#CE82FF;--d:#B86BEB" onclick="go(0,1)">🎤 Pronunciation practice</button>`}
+function vS(){const g=GR[stu-1];return `<div class="lt"><button class="x" onclick="S='H';R()">←</button><b style="font-size:19px">${stu} · ${g[0]}</b></div>`+V.filter(v=>v.g==stu).map(v=>`<div class="sr"><div>${["b","p","pp"].map(f=>`<button onclick="say('${v[f]}')">${v[f]}<small>/${v[KI[f]]}/</small></button>`).join("")}</div><small class="ipa">${v.t}</small></div>`).join("")}
+function vL(){const q=L.q[L.i],v=q.v,c=L.chk,ok=c&&c.ok;let h="";
+const H=s=>`<mark class="hl">${s}</mark>`,lab={mc:`What is the ${H(NM[q.f])} of`,mean:`What is the ${H("meaning")} of`,listen:`Tap the ${H(NM[q.f])} you hear`,type:`Write the ${H("past")} and the ${H("past participle")} of`,speak:`Say the ${H(NM[q.f])} out loud`}[q.t];
+h+=`<p>${lab}</p>`;
+if(q.t=="listen")h+=`<button class="spk" onclick="say('${v[q.f]}')" aria-label="Ouvir">🔊</button>`;
+else if(q.t=="speak")h+=`<div class="big">${v[q.f]}</div><div class="ipa">/${v[KI[q.f]]}/ · ${v.t}</div><button class="spk" onclick="say('${v[q.f]}')" aria-label="Ouvir">🔊</button><button class="b" style="--c:#CE82FF;--d:#B86BEB;margin-bottom:10px" onclick="sp()" ${c?"disabled":""}>🎤 Speak</button><p id="sr" class="ipa tc"></p>`;
+else h+=`<div class="big">${v.b}</div><div class="ipa">/${v.bi}/${q.t=="mean"?"":" · "+v.t}</div><br>`;
+if(q.o)h+=q.o.map((o,j)=>`<button class="opt ${c?(o==q.ok?"good":o==L.sel?"wrong":""):o==L.sel?"sel":""}" onclick="pk(${j})">${o}${q.t=="mc"||(q.t=="listen"&&c)?'<span style="float:right;opacity:.6">🔊</span>':""}</button>`).join("");
+if(q.t=="type")h+=["Past","Past participle"].map((l,j)=>`<input id="f${j}" placeholder="${l}" ${c?"disabled":""} autocapitalize="off" autocomplete="off" spellcheck="false" onkeydown="if(event.key=='Enter'&&${j}==1)chk()">`).join("");
+if(!c)h+=q.t=="speak"?`<button class="b g" onclick="nx()">Skip</button>`:`<button class="b" ${q.t=="type"||L.sel?"":"disabled"} onclick="chk()">Check</button>`;
+else{const ans=q.t=="type"?`${v.p} /${v.pi}/ · ${v.pp} /${v.ppi}/`:q.t=="mean"?v.t:`${q.ok} /${v[KI[q.f]]}/`;
+h+=`<div class="fb ${ok?"ok":"bad"}"><b>${ok?c.pr+" +10 XP":"Correct answer:"}</b><p>${ok&&q.t!="type"&&q.t!="mean"?`<span>${ans}</span>`:ans}${!ok&&L.hd?` · I heard “${L.hd}”`:""} <a href="#" onclick="say('${q.t=="type"?v.p+". "+v.pp:q.t=="mean"?v.b:q.ok}');return false">🔊</a></p><button class="b" onclick="nx()">Continue</button></div>`}
+return `<div class="lt"><button class="x" onclick="S='H';R()" aria-label="Exit">✕</button><div class="bar"><i style="width:${(L.i+(c?1:0))/L.q.length*100}%"></i></div><b>❤️ ${L.h}</b></div>`+h}
+function vE(){const w=L.h>0;return `<div class="tc"><div class="hero">${w?"🎉":"💔"}</div><h2>${w?"Lesson complete!":"Out of hearts"}</h2><p class="ipa">${w?"Come back tomorrow to keep your streak 🔥":"Review the group with 📖 and try again."}</p>
+<div class="sc"><div style="--c:#FFC800">+${w?L.xp:L.xp>>1}<small>XP</small></div><div style="--c:#58CC02">${L.n?Math.round(L.ok/L.n*100):0}%<small>Accuracy</small></div><div style="--c:#FF4B4B">${L.h}<small>Hearts</small></div></div><button class="b" onclick="S='H';R()">Continue</button></div>`}
+function R(){$("#app").innerHTML=({H:vH,S:vS,L:vL,E:vE})[S]();window.scrollTo(0,0)}
+R();
+</script></body></html>
